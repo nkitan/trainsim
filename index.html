@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Railway Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Three.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <!-- OrbitControls for camera manipulation -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <!-- First-person controls -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/PointerLockControls.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>3D Railway Simulator</h1>
+            <div class="controls">
+                <button id="startBtn">Start</button>
+                <button id="stopBtn">Stop</button>
+                <div class="speed-control">
+                    <label for="speedControl">Speed: </label>
+                    <input type="range" id="speedControl" min="0" max="100" value="0">
+                    <span id="speedValue">0</span>
+                </div>
+                <button id="buildModeBtn">Build Mode</button>
+                <button id="driveModeBtn">Drive Mode</button>
+            </div>
+        </div>
+        
+        <div class="game-view">
+            <div id="gameCanvas"></div>
+            <div id="buildControls" class="build-controls">
+                <button id="addTrackBtn">Add Track</button>
+                <button id="addStationBtn">Add Station</button>
+                <button id="addSignalBtn">Add Signal</button>
+                <button id="deleteBtn">Delete</button>
+            </div>
+        </div>
+        
+        <div class="dashboard">
+            <div class="gauge">
+                <label>Speed (km/h)</label>
+                <div id="speedometer">0</div>
+            </div>
+            <div class="gauge">
+                <label>Distance (km)</label>
+                <div id="distance">0.0</div>
+            </div>
+            <div class="signals">
+                <div class="signal" id="nextSignal">
+                    <div class="signal-light green"></div>
+                    <label>Next Signal</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game scripts -->
+    <script src="js/3d/scene.js"></script>
+    <script src="js/3d/models.js"></script>
+    <script src="js/3d/terrain.js"></script>
+    <script src="js/train.js"></script>
+    <script src="js/track.js"></script>
+    <script src="js/builder.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
